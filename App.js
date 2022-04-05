@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { loadAsync } from "expo-font";
+import { Provider } from "react-redux";
+
+import store from "./redux/index";
+import AppLoading from "./components/AppLoading";
+
+let customFonts = {
+  "Montserrat-Italic": require("./assets/fonts/Montserrat-Italic.ttf"),
+  "Montserrat-Medium": require("./assets/fonts/Montserrat-Medium.ttf"),
+  "Montserrat-MediumItalic": require("./assets/fonts/Montserrat-MediumItalic.ttf"),
+  "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
+  "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
+  "Montserrat-SemiBoldItalic": require("./assets/fonts/Montserrat-SemiBoldItalic.ttf"),
+};
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [state, setState] = useState({
+    fontsLoaded: false,
+  });
+
+  const loadFontsAsync = async function () {
+    await loadAsync(customFonts);
+    setState({ ...state, fontsLoaded: true });
+  };
+
+  useEffect(() => {
+    loadFontsAsync();
+  }, []);
+
+  if (!state.fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <Provider store={store}>
+        <View></View>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: {},
 });
