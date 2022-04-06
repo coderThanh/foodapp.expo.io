@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   yellow: "#F5CA48",
   red: "#F26C68",
   orange: "#E4723C",
@@ -7,4 +7,9 @@ const colors = {
   textGray: "#CDCDCD",
 };
 
-export default colors;
+export const styleDefault = {
+  padHori: 20,
+  padVerti: 20,
+  sizeBasic: 16,
+  sizeTitle: 32,
+};

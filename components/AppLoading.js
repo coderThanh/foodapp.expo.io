@@ -1,7 +1,7 @@
 import { ActivityIndicator, Image, View, StyleSheet } from "react-native";
 
 import pizaUrl from "../assets/images/pizza1.png";
-import colors from "../assets/colors/colors";
+import { colors } from "../assets/default/style";
 
 export default function AppLoading(props) {
   const { source, style } = props;

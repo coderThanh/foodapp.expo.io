@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { loadAsync } from "expo-font";
 import { Provider } from "react-redux";
 
 import store from "./redux/index";
+import Navigator from "./Navigator";
 import AppLoading from "./components/AppLoading";
 
 let customFonts = {
@@ -34,12 +34,8 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <View></View>
+        <Navigator />
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});

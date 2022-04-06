@@ -28,6 +28,22 @@ const initialState = {
       rating: "4.5",
       catId: [1, 2, 3],
     },
+    {
+      id: 4,
+      image: require("../assets/images/pizza2.png"),
+      title: "Mohamet Pizza",
+      weight: "750",
+      rating: "4.5",
+      catId: [1, 3],
+    },
+    {
+      id: 5,
+      image: require("../assets/images/pizza3.png"),
+      title: "Alocono Pizza",
+      weight: "750",
+      rating: "4.5",
+      catId: [1],
+    },
   ],
 };
 
