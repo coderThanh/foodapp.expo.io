@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   sup: {
     textTransform: "capitalize",
     fontFamily: "Montserrat-Regular",
-    fontSize: styleDefault.sizeBasic,
+    fontSize: 20,
     marginBottom: 5,
   },
   title: {

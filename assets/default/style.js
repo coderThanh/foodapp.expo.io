@@ -4,7 +4,10 @@ export const colors = {
   orange: "#E4723C",
   bgGray: "#F9F9FB",
   text: "#313234",
-  textGray: "#CDCDCD",
+  textGray: "#999",
+  borderGray: "#cdcdcd",
+  white: "#fff",
+  black: "#000",
 };
 
 export const styleDefault = {
@@ -12,4 +15,13 @@ export const styleDefault = {
   padVerti: 20,
   sizeBasic: 16,
   sizeTitle: 32,
+  shadown: {
+    shadowOffset: {
+      width: 3,
+      height: 2,
+    },
+    shadowColor: "#000",
+    shadowRadius: 3,
+    shadowOpacity: 0.02,
+  },
 };
