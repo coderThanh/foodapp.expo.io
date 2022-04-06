@@ -25,13 +25,11 @@ export default function CategoryItem(props) {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => {
-          dispatch(updateSelecting({ id: category.id }));
+          if (!isActive) dispatch(updateSelecting({ id: category.id }));
         }}
         style={[
           styles.icon,
-          {
-            backgroundColor: isActive ? colors.white : colors.red,
-          },
+          { backgroundColor: isActive ? colors.white : colors.red },
         ]}
       >
         <Icon

@@ -6,7 +6,7 @@ import { colors, styleDefault } from "../assets/default/style";
 import BoxIcon from "./BoxIcon";
 
 export default function CategoryItem(props) {
-  const { food, style } = props;
+  const { food, style, onPress } = props;
 
   return (
     <View style={[styles.container, style]}>
@@ -22,7 +22,11 @@ export default function CategoryItem(props) {
           Weight {food.weight}gr
         </Text>
         <View style={styles.boxBottom}>
-          <TouchableOpacity activeOpacity={0.7} style={styles.toch}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={styles.toch}
+            onPress={() => onPress()}
+          >
             <Icon name="add" size={18} color={colors.black} />
           </TouchableOpacity>
           <BoxIcon

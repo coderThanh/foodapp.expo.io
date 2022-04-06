@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const SLICE_NAME = "food";
 
@@ -10,7 +10,7 @@ const initialState = {
       title: "Primavera Pizza",
       weight: "540",
       rating: "5.0",
-      catId: [1, 2, 3],
+      catId: [1, 3],
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const initialState = {
       title: "Peppernori Pizza",
       weight: "750",
       rating: "4.5",
-      catId: [1, 2, 3],
+      catId: [1, 4],
     },
     {
       id: 4,
@@ -46,6 +46,29 @@ const initialState = {
     },
   ],
 };
+
+export const getFoodsByCat = createAsyncThunk(
+  "getFoodsByCat",
+  async (params, { getState }) => {
+    const { catId } = params;
+    const { items } = getState().food;
+
+    var foodsFilter = [];
+
+    await items.map((item) => {
+      const itemCatId = item.catId;
+      const itemInCatReq = itemCatId.some((id) => {
+        return catId.indexOf(id) != -1 ? true : false;
+      });
+
+      if (itemInCatReq) {
+        foodsFilter.push(item);
+      }
+    });
+
+    return foodsFilter;
+  }
+);
 
 const foodSlice = createSlice({
   name: SLICE_NAME,

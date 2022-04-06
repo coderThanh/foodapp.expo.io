@@ -16,6 +16,8 @@ export default function ScreenTitle(props) {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: styleDefault.padHori,
+    paddingTop: 30,
+    paddingBottom: 20,
   },
   sup: {
     textTransform: "capitalize",

@@ -14,6 +14,8 @@ export default function SectionTitle(props) {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: styleDefault.padHori,
+    marginBottom: 10,
+    marginTop: 25,
   },
   title: {
     fontSize: 17,
