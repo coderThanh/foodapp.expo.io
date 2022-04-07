@@ -8,6 +8,9 @@ const store = configureStore({
     category: categorySlice,
     food: foodSlice,
   },
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware({ immutableCheck: false }),
+  ],
 });
 
 export default store;

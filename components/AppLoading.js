@@ -7,12 +7,12 @@ export default function AppLoading(props) {
   const { source, style } = props;
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         resizeMode="contain"
         source={source ? source : pizaUrl}
         style={[styles.image, style]}
-      />
-      <ActivityIndicator color={colors.textGray} />
+      /> */}
+      {/* <ActivityIndicator color={colors.textGray} /> */}
     </View>
   );
 }

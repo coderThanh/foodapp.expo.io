@@ -18,13 +18,15 @@ import { styleDefault } from "../assets/default/style";
 
 export default function HomeScreen(props) {
   const { navigation } = props;
-  const [homeState, setState] = useState({ foods: [] });
+  const [homeState, setState] = useState({ foods: [], isReady: false });
 
   // Get State root form react redux
   const { selecting, items } = useSelector((state) => state.category);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setState({ ...homeState, isReady: true });
+
     dispatch(getFoodsByCat({ catId: [selecting] }))
       .unwrap()
       .then((res) => {
